@@ -160,7 +160,7 @@ jobs:
         if: github.event_name == 'release'
         run: mkdir -p public; cp web/index.html web/esp_stacktrace_decoder_rs.js web/esp_stacktrace_decoder_rs_bg.wasm public/
 
-      - uses: actions/upload-pages-artifact@v3.0.1
+      - uses: actions/upload-pages-artifact@v4.0.0
         if: github.event_name == 'release'
         with:
           path: public
