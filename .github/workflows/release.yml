@@ -84,7 +84,7 @@ jobs:
 
     - name: Upload to GitHub Release
       if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v2.3.2
+      uses: softprops/action-gh-release@v2.3.3
       with:
         files: esp_stacktrace_decoder_${{ matrix.bin_suffix }}
 
@@ -123,7 +123,7 @@ jobs:
 
     - name: Upload to GitHub Release
       if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v2.3.2
+      uses: softprops/action-gh-release@v2.3.3
       with:
         files: target/x86_64-pc-windows-gnu/release/esp_stacktrace_decoder.exe
 
@@ -152,7 +152,7 @@ jobs:
 
       - name: Upload to GitHub Release
         if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2.3.2
+        uses: softprops/action-gh-release@v2.3.3
         with:
           files: esp_stacktrace_decoder_wasm.tar.gz
 
