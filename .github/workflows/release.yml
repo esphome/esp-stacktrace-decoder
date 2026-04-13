@@ -48,12 +48,12 @@ jobs:
           bin_suffix: macos
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
       with:
         fetch-depth: 1
 
     - name: Cache
-      uses: actions/cache@v4.2.3
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684  # v4.2.3
       with:
         path: |
           ~/.cargo/registry
@@ -84,7 +84,7 @@ jobs:
 
     - name: Upload to GitHub Release
       if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v2.3.2
+      uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8  # v2.3.2
       with:
         files: esp_stacktrace_decoder_${{ matrix.bin_suffix }}
 
@@ -93,12 +93,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
       with:
         fetch-depth: 1
 
     - name: Cache
-      uses: actions/cache@v4.2.3
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684  # v4.2.3
       with:
         path: |
           ~/.cargo/registry
@@ -123,7 +123,7 @@ jobs:
 
     - name: Upload to GitHub Release
       if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v2.3.2
+      uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8  # v2.3.2
       with:
         files: target/x86_64-pc-windows-gnu/release/esp_stacktrace_decoder.exe
 
@@ -132,16 +132,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 
-      - uses: actions-rs/toolchain@v1
+      - uses: actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af  # v1.0.7
         with:
           toolchain: stable
           target: wasm32-unknown-unknown
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32  # v2
 
-      - uses: jetli/wasm-pack-action@v0.4.0
+      - uses: jetli/wasm-pack-action@0d096b08b4e5a7de8c28de67e11e945404e9eefa  # v0.4.0
 
       - name: Run wasm-pack
         run: wasm-pack build --target web --out-dir web/
@@ -152,7 +152,7 @@ jobs:
 
       - name: Upload to GitHub Release
         if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v2.3.2
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8  # v2.3.2
         with:
           files: esp_stacktrace_decoder_wasm.tar.gz
 
@@ -160,7 +160,7 @@ jobs:
         if: github.event_name == 'release'
         run: mkdir -p public; cp web/index.html web/esp_stacktrace_decoder_rs.js web/esp_stacktrace_decoder_rs_bg.wasm public/
 
-      - uses: actions/upload-pages-artifact@v3.0.1
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3.0.1
         if: github.event_name == 'release'
         with:
           path: public
@@ -181,8 +181,8 @@ jobs:
       - build-web
     steps:
       - name: Setup Pages
-        uses: actions/configure-pages@v5.0.0
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b  # v5.0.0
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4.0.5
